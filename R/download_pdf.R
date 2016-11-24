@@ -6,7 +6,8 @@
 #' writing a scraper annoying. This simplifies PDF scraping by creating a
 #' dedicated function and support functions to, e.g., test for PDFness. Ensures
 #' URL encoding, handles missing URLs gracefully. The filename is the basename
-#' of the URL with " " replaced with "_".
+#' of the URL with " " replaced with "_". Includes the \code{pause} parameter
+#' to limit the rate at which requests hit the hosting servers.
 #'
 #' @param url A URL from ECOS to download a document
 #' @param subd Subdirectory to which the document will be downloaded
@@ -65,7 +66,7 @@ download_pdf <- function(url, subd, pause = TRUE) {
 #' is based on the URL, but spaces " " are replaced with underscores "_", and
 #' the ".pdf" prefix is appended if not present.
 #'
-#' @param url A URL from NMFS to download a PDF document
+#' @param url The URL from which to download a PDF document
 #' @param subd The subdirectory in which the download will be written
 #' @return The file path where the download will be written
 #' @export
