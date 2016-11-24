@@ -1,4 +1,4 @@
-## pdfdown
+# pdfdown
 
 An R package to simplify portable Document Format (PDF) file downloads.
 
@@ -13,7 +13,7 @@ of the URL with " " replaced with "_". \link{download_pdf} includes the
 servers. We mostly use this to facilitate scraping U.S. Government documents 
 that are only available as PDFs.
 
-### Installation
+## Installation
 
 Use [devtools](https://github.com/hadley/devtools) to install `pdfdown`:
 
@@ -21,7 +21,7 @@ Use [devtools](https://github.com/hadley/devtools) to install `pdfdown`:
 devtools::install_github("Defenders-ESC/pdfdown")
 ```
 
-### Usage
+## Usage
 
 Get the [five-year review](https://www.fws.gov/endangered/what-we-do/pdf/5-yr_review_factsheet.pdf) for the [Pecos puzzle sunflower](https://ecos.fws.gov/ecp0/profile/speciesProfile?spcode=Q0YJ):
 
@@ -30,12 +30,12 @@ url <- "https://ecos.fws.gov/docs/five_year_review/doc4599.pdf"
 helpar5y <- download_pdf(url, "~/Downloads")
 ```
 
-### Help
+## Help
 
 Find a bug or have a question? Submit an issue on [GitHub](https://github.com/Defenders-ESC/pdfdown/issues)! Alternatively, 
 [get in touch](mailto:esa@defenders.org).
 
-### Contributing
+## Contributing
 
 Want to add features or fix a bug? Fork [the repo](https://github.com/Defenders-ESC/pdfdown) and submit a pull request! Thanks!
 

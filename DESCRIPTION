@@ -2,7 +2,8 @@ Package: pdfdown
 Type: Package
 Title: Robust Downloads of Portable Document Format (PDF) Files
 Version: 0.1.0
-Author: Jacob Malcom
+Authors@R: person("Defenders of Wildlife", "ESC", email = "esa@defenders.org",
+                  role = c("aut", "cre"))
 Maintainer: Jacob Malcom <jmalcom@defenders.org>
 Description: Scraping PDFs from the web can run into little hitches that make
     writing a scraper annoying. This simplifies PDF scraping by creating a 
