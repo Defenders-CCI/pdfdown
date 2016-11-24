@@ -9,8 +9,12 @@
 #' of the URL with " " replaced with "_". Includes the \code{pause} parameter
 #' to limit the rate at which requests hit the hosting servers.
 #'
+#' TODO: Have the overwrite check work on the MD5 hash of files in the download
+#' \code{sudb} rather than relying on file names.
+#'
 #' @param url A URL from ECOS to download a document
 #' @param subd Subdirectory to which the document will be downloaded
+#' @param overwrite Overwrite an existing file of the same name
 #' @param pause Whether to pause for 0.5-3 seconds during scraping
 #' @return A data.frame with url, destination, success, pdfCheck
 #' @importFrom httr http_error GET write_disk
@@ -19,10 +23,10 @@
 #' \dontrun{
 #' result <- download_pdf("https://goo.gl/I3P3A3", "~/Downloads")
 #' }
-download_pdf <- function(url, subd, pause = TRUE) {
+download_pdf <- function(url, subd, overwrite = FALSE, pause = TRUE) {
   dest <- make_pdf_dest(url, subd)
   url <- URLencode(url)
-  if(!file_check(dest)) {
+  if(!file_check(dest) & !overwrite) {
     if(pause == TRUE) Sys.sleep(runif(1, 0.5, 3))
     if(class(try(httr::http_error(url), silent = TRUE)) != "try-error") {
       res <- try(httr::GET(url, httr::write_disk(dest, overwrite = TRUE)))

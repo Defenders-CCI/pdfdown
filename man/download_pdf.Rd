@@ -4,12 +4,14 @@
 \alias{download_pdf}
 \title{Download a PDF from a URL}
 \usage{
-download_pdf(url, subd, pause = TRUE)
+download_pdf(url, subd, overwrite = FALSE, pause = TRUE)
 }
 \arguments{
 \item{url}{A URL from ECOS to download a document}
 
 \item{subd}{Subdirectory to which the document will be downloaded}
+
+\item{overwrite}{Overwrite an existing file of the same name}
 
 \item{pause}{Whether to pause for 0.5-3 seconds during scraping}
 }
@@ -24,7 +26,11 @@ Scraping PDFs from the web can run into little hitches that make
 writing a scraper annoying. This simplifies PDF scraping by creating a
 dedicated function and support functions to, e.g., test for PDFness. Ensures
 URL encoding, handles missing URLs gracefully. The filename is the basename
-of the URL with " " replaced with "_".
+of the URL with " " replaced with "_". Includes the \code{pause} parameter
+to limit the rate at which requests hit the hosting servers.
+
+TODO: Have the overwrite check work on the MD5 hash of files in the download
+\code{sudb} rather than relying on file names.
 }
 \examples{
 \dontrun{

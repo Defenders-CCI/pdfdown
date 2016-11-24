@@ -7,7 +7,7 @@
 make_pdf_dest(url, subd = "")
 }
 \arguments{
-\item{url}{A URL from NMFS to download a PDF document}
+\item{url}{The URL from which to download a PDF document}
 
 \item{subd}{The subdirectory in which the download will be written}
 }
