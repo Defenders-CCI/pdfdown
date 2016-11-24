@@ -15,7 +15,7 @@ that are only available as PDFs.
 
 ### Installation
 
-Use (devtools)[https://github.com/hadley/devtools] to install `pdfdown`:
+Use [devtools](https://github.com/hadley/devtools) to install `pdfdown`:
 
 ```r
 devtools::install_github("jacob-ogre/pdfdown")
