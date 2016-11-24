@@ -18,7 +18,7 @@ that are only available as PDFs.
 Use [devtools](https://github.com/hadley/devtools) to install `pdfdown`:
 
 ```r
-devtools::install_github("jacob-ogre/pdfdown")
+devtools::install_github("Defenders-ESC/pdfdown")
 ```
 
 ### Usage
@@ -32,10 +32,10 @@ helpar5y <- download_pdf(url, "~/Downloads")
 
 ### Help
 
-Find a bug or have a question? Submit an issue on [GitHub](https://github.com/jacob-ogre/pdfdown)! Alternatively, 
+Find a bug or have a question? Submit an issue on [GitHub](https://github.com/Defenders-ESC/pdfdown/issues)! Alternatively, 
 [get in touch](mailto:esa@defenders.org).
 
 ### Contributing
 
-Want to add features or fix a bug? Fork [the repo](https://github.com/jacob-ogre/pdfdown) and submit a pull request! Thanks!
+Want to add features or fix a bug? Fork [the repo](https://github.com/Defenders-ESC/pdfdown) and submit a pull request! Thanks!
 
