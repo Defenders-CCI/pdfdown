@@ -14,6 +14,7 @@
 #'
 #' @param url A URL from ECOS to download a document
 #' @param subd Subdirectory to which the document will be downloaded
+#' @param quiet Suppress a message about which URL is being processed
 #' @param overwrite Overwrite an existing file of the same name
 #' @param pause Whether to pause for 0.5-3 seconds during scraping
 #' @return A data.frame with url, destination, success, pdfCheck
@@ -23,7 +24,9 @@
 #' \dontrun{
 #' result <- download_pdf("https://goo.gl/I3P3A3", "~/Downloads")
 #' }
-download_pdf <- function(url, subd, overwrite = FALSE, pause = TRUE) {
+download_pdf <- function(url, subd, quiet = FALSE,
+                         overwrite = FALSE, pause = TRUE) {
+  if(!quiet) message(paste("Processing:", url))
   dest <- make_pdf_dest(url, subd)
   url <- URLencode(url)
   if(!file_check(dest) & !overwrite) {
