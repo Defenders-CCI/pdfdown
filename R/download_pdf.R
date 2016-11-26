@@ -35,7 +35,7 @@ download_pdf <- function(url, subd, quiet = FALSE,
       res <- try(httr::GET(url, httr::write_disk(dest, overwrite = TRUE)))
       if(class(res) == "try-error") { # Try once more
         res <- try(httr::GET(url, httr::write_disk(dest, overwrite = TRUE)))
-        if(class(res) == "try-error") {
+        if(class(res) == "try-error" | res$all_headers[[1]]$status != 200) {
           return(data.frame(url = url,
                             dest = NA,
                             success = "Failed",
