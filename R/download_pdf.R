@@ -37,7 +37,7 @@ download_pdf <- function(url, subd, quiet = FALSE,
         res <- try(httr::GET(url, httr::write_disk(dest, overwrite = TRUE)))
         if(class(res) == "try-error") {
           return(data.frame(url = url,
-                            dest = dest,
+                            dest = NA,
                             success = "Failed",
                             pdfCheck = NA,
                             stringsAsFactors = FALSE))
@@ -51,7 +51,7 @@ download_pdf <- function(url, subd, quiet = FALSE,
                         stringsAsFactors = FALSE))
     } else {
       return(data.frame(url = url,
-                        dest = dest,
+                        dest = NA,
                         success = "Failed",
                         pdfCheck = NA,
                         stringsAsFactors = FALSE))
@@ -115,7 +115,8 @@ file_check <- function(f) {
 #' @export
 is_pdf <- function(f) {
   if(file.exists(f)) {
-    res <- suppressMessages(try(pdftools::pdf_info(f), silent = TRUE))
+    res <- suppressMessages(try(pdftools::pdf_info(f),
+                                silent = TRUE))
     if(class(res) != "try-error") return(TRUE)
     return(FALSE)
   }
