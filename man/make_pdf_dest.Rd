@@ -21,6 +21,6 @@ Construct a path to download a PDF
 Creates the directory to which the PDF will be downloaded if it
 doesn't yet exist and returns the download path. The filename of the download
 is based on the URL, but spaces " " are replaced with underscores "_", and
-the ".pdf" prefix is appended if not present.
+the ".pdf" prefix is appended if not present in the URL.
 }
 

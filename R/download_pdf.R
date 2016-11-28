@@ -12,11 +12,11 @@
 #' TODO: Have the overwrite check work on the MD5 hash of files in the download
 #' \code{sudb} rather than relying on file names.
 #'
-#' @param url A URL from ECOS to download a document
-#' @param subd Subdirectory to which the document will be downloaded
-#' @param quiet Suppress a message about which URL is being processed
-#' @param overwrite Overwrite an existing file of the same name
-#' @param pause Whether to pause for 0.5-3 seconds during scraping
+#' @param url The URL for a PDF
+#' @param subd Subdirectory to which the PDF will be downloaded
+#' @param quiet Suppress a message about which URL is being processed [default=FALSE]
+#' @param overwrite Overwrite an existing file of the same name [default=FALSE]
+#' @param pause Whether to pause for 0.5-3 seconds during scraping [default=TRUE]
 #' @return A data.frame with url, destination, success, pdfCheck
 #' @importFrom httr http_error GET write_disk
 #' @export
@@ -71,7 +71,7 @@ download_pdf <- function(url, subd, quiet = FALSE,
 #' @details Creates the directory to which the PDF will be downloaded if it
 #' doesn't yet exist and returns the download path. The filename of the download
 #' is based on the URL, but spaces " " are replaced with underscores "_", and
-#' the ".pdf" prefix is appended if not present.
+#' the ".pdf" prefix is appended if not present in the URL.
 #'
 #' @param url The URL from which to download a PDF document
 #' @param subd The subdirectory in which the download will be written
@@ -103,11 +103,11 @@ file_check <- function(f) {
 
 #' Test if a file is a pdf
 #'
-#' @details All PDFs should have an dictionary that contains information about
+#' @details All PDFs should have a dictionary that contains information about
 #' the key metadata about the document. This function uses
 #' \link[pdftools]{pdf_info} to check if the downloaded file is, in fact, a PDF
-#' because too often we get, e.g., an HTML status 404 download instead of the
-#' desired PDF.
+#' because too often we get something other than the PDF, e.g., an HTML status
+#' 404 download.
 #'
 #' @param f Path to a file to test
 #' @return TRUE if pdftools::pdf_info thinks it's a PDF, else FALSE

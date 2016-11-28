@@ -4,16 +4,18 @@
 \alias{download_pdf}
 \title{Download a PDF from a URL}
 \usage{
-download_pdf(url, subd, overwrite = FALSE, pause = TRUE)
+download_pdf(url, subd, quiet = FALSE, overwrite = FALSE, pause = TRUE)
 }
 \arguments{
-\item{url}{A URL from ECOS to download a document}
+\item{url}{The URL for a PDF}
 
-\item{subd}{Subdirectory to which the document will be downloaded}
+\item{subd}{Subdirectory to which the PDF will be downloaded}
 
-\item{overwrite}{Overwrite an existing file of the same name}
+\item{quiet}{Suppress a message about which URL is being processed [default=FALSE]}
 
-\item{pause}{Whether to pause for 0.5-3 seconds during scraping}
+\item{overwrite}{Overwrite an existing file of the same name [default=FALSE]}
+
+\item{pause}{Whether to pause for 0.5-3 seconds during scraping [default=TRUE]}
 }
 \value{
 A data.frame with url, destination, success, pdfCheck

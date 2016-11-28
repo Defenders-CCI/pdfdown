@@ -16,10 +16,10 @@ TRUE if pdftools::pdf_info thinks it's a PDF, else FALSE
 Test if a file is a pdf
 }
 \details{
-All PDFs should have an dictionary that contains information about
+All PDFs should have a dictionary that contains information about
 the key metadata about the document. This function uses
 \link[pdftools]{pdf_info} to check if the downloaded file is, in fact, a PDF
-because too often we get, e.g., an HTML status 404 download instead of the
-desired PDF.
+because too often we get something other than the PDF, e.g., an HTML status
+404 download.
 }
 
