@@ -36,8 +36,8 @@
   <div class="contents col-md-9">
     <div id="pdfdown" class="section level1">
 <div class="page-header"><h1 class="hasAnchor"><a href="#pdfdown" class="anchor"> </a>pdfdown</h1></div>
-<p>An R package to simplify portable Document Format (PDF) file downloads.</p>
-<hr><p>Scraping PDFs from the web can run into little hitches that make writing a scraper annoying. This simplifies PDF scraping by creating a dedicated function and support functions to, e.g., test for PDFness. Ensures URL encoding, handles missing URLs gracefully. The filename is the basename of the URL with " " replaced with &ldquo;_&ldquo;. \link{download_pdf} includes the \code{pause} parameter to limit the rate at which requests hit the hosting servers. We mostly use this to facilitate scraping U.S. Government documents that are only available as PDFs.</p>
+<p>An R package to simplify Portable Document Format (PDF) file downloads.</p>
+<hr><p>Scraping PDFs from the web can run into little hitches that make writing a scraper annoying. This simplifies PDF scraping by creating a dedicated function and support functions to, e.g., test for PDFness. Ensures URL encoding, handles missing URLs gracefully. The main function, <code>download_pdf</code>, includes the <code>pause</code> parameter (random 0-3s) to limit the rate at which requests hit the host server. We mostly use this to facilitate scraping U.S. Government documents that are only available as PDFs.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"> </a>Installation</h2>
@@ -49,7 +49,7 @@
 <a href="#usage" class="anchor"> </a>Usage</h2>
 <p>Get the <a href="https://www.fws.gov/endangered/what-we-do/pdf/5-yr_review_factsheet.pdf">five-year review</a> for the <a href="https://ecos.fws.gov/ecp0/profile/speciesProfile?spcode=Q0YJ">Pecos puzzle sunflower</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> "https://ecos.fws.gov/docs/five_year_review/doc4599.pdf"</span>
-helpar5y &lt;-<span class="st"> </span><span class="kw"><a href="reference/download_pdf.html">download_pdf</a></span>(url, <span class="st">"~/Downloads"</span>)</code></pre></div>
+helpar5y &lt;-<span class="st"> </span><span class="kw"><a href="reference/download_pdf.html">download_pdf</a></span>(url, <span class="st">"~/Downloads/doc4599.pdf"</span>)</code></pre></div>
 </div>
 <div id="help" class="section level2">
 <h2 class="hasAnchor">

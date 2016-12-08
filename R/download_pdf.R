@@ -13,28 +13,27 @@
 #' \code{sudb} rather than relying on file names.
 #'
 #' @param url The URL for a PDF
-#' @param subd Subdirectory to which the PDF will be downloaded
+#' @param file File to which the PDF will be downloaded
 #' @param quiet Suppress a message about which URL is being processed [default=FALSE]
 #' @param overwrite Overwrite an existing file of the same name [default=FALSE]
 #' @param pause Whether to pause for 0.5-3 seconds during scraping [default=TRUE]
 #' @return A data.frame with url, destination, success, pdfCheck
-#' @importFrom httr http_error GET write_disk
 #' @export
 #' @examples
 #' \dontrun{
-#' result <- download_pdf("https://goo.gl/I3P3A3", "~/Downloads")
+#'   result <- download_pdf(url = "https://goo.gl/I3P3A3",
+#'                          file = "~/Downloads/test.pdf")
 #' }
-download_pdf <- function(url, subd, quiet = FALSE,
+download_pdf <- function(url, file, quiet = FALSE,
                          overwrite = FALSE, pause = TRUE) {
   if(!quiet) message(paste("Processing:", url))
-  dest <- make_pdf_dest(url, subd)
   url <- URLencode(url)
-  if(!file_check(dest) & !overwrite) {
+  if(!file_check(file) & !overwrite) {
     if(pause == TRUE) Sys.sleep(runif(1, 0.5, 3))
     if(class(try(httr::http_error(url), silent = TRUE)) != "try-error") {
-      res <- try(httr::GET(url, httr::write_disk(dest, overwrite = TRUE)))
+      res <- try(httr::GET(url, httr::write_disk(file, overwrite = TRUE)))
       if(class(res) == "try-error") { # Try once more
-        res <- try(httr::GET(url, httr::write_disk(dest, overwrite = TRUE)))
+        res <- try(httr::GET(url, httr::write_disk(file, overwrite = TRUE)))
         if(class(res) == "try-error" | res$all_headers[[1]]$status != 200) {
           return(data.frame(url = url,
                             dest = NA,
@@ -43,9 +42,9 @@ download_pdf <- function(url, subd, quiet = FALSE,
                             stringsAsFactors = FALSE))
         }
       }
-      pdfCheck <- is_pdf(dest)
+      pdfCheck <- is_pdf(file)
       return(data.frame(url = url,
-                        dest = dest,
+                        dest = file,
                         success = "Success",
                         pdfCheck = pdfCheck,
                         stringsAsFactors = FALSE))
@@ -57,9 +56,9 @@ download_pdf <- function(url, subd, quiet = FALSE,
                         stringsAsFactors = FALSE))
     }
   } else {
-    pdfCheck <- is_pdf(dest)
+    pdfCheck <- is_pdf(file)
     return(data.frame(url = url,
-                      dest = dest,
+                      dest = file,
                       success = "Pre-exist",
                       pdfCheck = pdfCheck,
                       stringsAsFactors = FALSE))
@@ -106,7 +105,7 @@ file_check <- function(f) {
 #' @details All PDFs should have a dictionary that contains information about
 #' the key metadata about the document. This function uses
 #' \link[pdftools]{pdf_info} to check if the downloaded file is, in fact, a PDF
-#' because too often we get something other than the PDF, e.g., an HTML status
+#' because too often we get something other than the PDF, e.g., an http status
 #' 404 download.
 #'
 #' @param f Path to a file to test
@@ -118,7 +117,9 @@ is_pdf <- function(f) {
     res <- suppressMessages(try(pdftools::pdf_info(f),
                                 silent = TRUE))
     if(class(res) != "try-error") return(TRUE)
+    warning(paste(f, "does not look like a PDF."))
     return(FALSE)
   }
+  warning(paste(f, "does not exist."))
   return(FALSE)
 }

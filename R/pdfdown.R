@@ -11,6 +11,8 @@
 #' \code{pause} parameter to limit the rate at which requests hit the hosting
 #' servers.
 #'
+#' @importFrom httr http_error GET write_disk
+#'
 #' @docType package
 #' @name pdfdown
 NULL

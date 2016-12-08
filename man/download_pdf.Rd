@@ -4,12 +4,12 @@
 \alias{download_pdf}
 \title{Download a PDF from a URL}
 \usage{
-download_pdf(url, subd, quiet = FALSE, overwrite = FALSE, pause = TRUE)
+download_pdf(url, file, quiet = FALSE, overwrite = FALSE, pause = TRUE)
 }
 \arguments{
 \item{url}{The URL for a PDF}
 
-\item{subd}{Subdirectory to which the PDF will be downloaded}
+\item{file}{File to which the PDF will be downloaded}
 
 \item{quiet}{Suppress a message about which URL is being processed [default=FALSE]}
 
@@ -36,7 +36,8 @@ TODO: Have the overwrite check work on the MD5 hash of files in the download
 }
 \examples{
 \dontrun{
-result <- download_pdf("https://goo.gl/I3P3A3", "~/Downloads")
+  result <- download_pdf(url = "https://goo.gl/I3P3A3",
+                         file = "~/Downloads/test.pdf")
 }
 }
 

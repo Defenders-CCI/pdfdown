@@ -1,16 +1,15 @@
 # pdfdown
 
-An R package to simplify portable Document Format (PDF) file downloads.
+An R package to simplify Portable Document Format (PDF) file downloads.
 
 ----
 
-Scraping PDFs from the web can run into little hitches that make
-writing a scraper annoying. This simplifies PDF scraping by creating a
-dedicated function and support functions to, e.g., test for PDFness. Ensures
-URL encoding, handles missing URLs gracefully. The filename is the basename
-of the URL with " " replaced with "_". \link{download_pdf} includes the
-\code{pause} parameter to limit the rate at which requests hit the hosting
-servers. We mostly use this to facilitate scraping U.S. Government documents 
+Scraping PDFs from the web can run into little hitches that make writing a 
+scraper annoying. This simplifies PDF scraping by creating a dedicated function 
+and support functions to, e.g., test for PDFness. Ensures URL encoding, handles 
+missing URLs gracefully. The main function, `download_pdf`, includes the
+`pause` parameter (random 0-3s) to limit the rate at which requests hit the 
+host server. We mostly use this to facilitate scraping U.S. Government documents 
 that are only available as PDFs.
 
 ## Installation
@@ -27,7 +26,7 @@ Get the [five-year review](https://www.fws.gov/endangered/what-we-do/pdf/5-yr_re
 
 ```r
 url <- "https://ecos.fws.gov/docs/five_year_review/doc4599.pdf"
-helpar5y <- download_pdf(url, "~/Downloads")
+helpar5y <- download_pdf(url, "~/Downloads/doc4599.pdf")
 ```
 
 ## Help
