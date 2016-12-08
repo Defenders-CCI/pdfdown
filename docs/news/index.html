@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Construct a path to download a PDF — make_pdf_dest • pdfdown</title>
+<title>All news • pdfdown</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -34,7 +34,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -72,49 +72,31 @@
       </header>
 
       <div class="row">
-  <div class="col-md-9 contents">
+
+  <div class="col-md-9">
     <div class="page-header">
-    <h1>Construct a path to download a PDF</h1>
+      <h1>Change log <small>All releases</small></h1>
     </div>
 
-    
-    <p>Construct a path to download a PDF</p>
-    
-
-    <pre><span class='fu'>make_pdf_dest</span>(<span class='no'>url</span>, <span class='kw'>subd</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>url</dt>
-      <dd>The URL from which to download a PDF document</dd>
-      <dt>subd</dt>
-      <dd>The subdirectory in which the download will be written</dd>
-    </dl>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>The file path to which the PDF will be written</p>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Creates the directory to which the PDF will be downloaded if it
-doesn&#39;t yet exist and returns the download path. The filename of the download
-is based on the URL, but spaces &quot; &quot; are replaced with underscores &quot;_&quot;, and
-the &quot;.pdf&quot; prefix is appended if not present in the URL.</p>
-    
-
+    <div class="contents">
+    <div id="pdfdown-0-2-0" class="section level1">
+<h1 class="hasAnchor">
+<a href="#pdfdown-0-2-0" class="anchor"> </a>pdfdown 0.2.0</h1>
+<ul><li>Changed the API for <code>download_pdf</code> to take the path to which the PDF is written, rather than the subdirectory to which it is written (and automatic file naming).</li>
+<li>Cleaned up the documentation a little.</li>
+</ul></div>
+    </div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
-          </ul>
-
+    <div id="tocnav">
+      <h2>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#pdfdown-0-2-0">0.2.0</a></li>
+      </ul>
+    </div>
   </div>
+
 </div>
 
       <footer>

@@ -85,10 +85,10 @@ make_pdf_dest <- function(url, subd = "") {
   return(dest)
 }
 
-#' Check if file exists and if so, if it is really a PDF
-#'
-#' @param f File to check
-#' @return TRUE if file exists and is PDF, else FALSE
+# Check if file exists and if so, if it is really a PDF
+#
+# @param f File to check
+# @return TRUE if file exists and is PDF, else FALSE
 file_check <- function(f) {
   if(file.exists(f)) {
     if(is_pdf(f)) {
