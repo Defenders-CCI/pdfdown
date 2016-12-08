@@ -12,6 +12,7 @@
 #' servers.
 #'
 #' @importFrom httr http_error GET write_disk
+#' @importFrom pdftools pdf_info
 #'
 #' @docType package
 #' @name pdfdown

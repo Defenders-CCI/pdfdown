@@ -74,7 +74,7 @@ download_pdf <- function(url, file, quiet = FALSE,
 #'
 #' @param url The URL from which to download a PDF document
 #' @param subd The subdirectory in which the download will be written
-#' @return The file path where the download will be written
+#' @return The file path to which the PDF will be written
 #' @export
 make_pdf_dest <- function(url, subd = "") {
   fname <- basename(url)
@@ -89,7 +89,6 @@ make_pdf_dest <- function(url, subd = "") {
 #'
 #' @param f File to check
 #' @return TRUE if file exists and is PDF, else FALSE
-#' @export
 file_check <- function(f) {
   if(file.exists(f)) {
     if(is_pdf(f)) {
@@ -110,7 +109,6 @@ file_check <- function(f) {
 #'
 #' @param f Path to a file to test
 #' @return TRUE if pdftools::pdf_info thinks it's a PDF, else FALSE
-#' @importFrom pdftools pdf_info
 #' @export
 is_pdf <- function(f) {
   if(file.exists(f)) {

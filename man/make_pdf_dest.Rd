@@ -12,7 +12,7 @@ make_pdf_dest(url, subd = "")
 \item{subd}{The subdirectory in which the download will be written}
 }
 \value{
-The file path where the download will be written
+The file path to which the PDF will be written
 }
 \description{
 Construct a path to download a PDF
