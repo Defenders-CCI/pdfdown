@@ -1,7 +1,7 @@
 Package: pdfdown
 Type: Package
 Title: Robust Downloads of Portable Document Format (PDF) Files
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Defenders of Wildlife", "ESC", email = "esa@defenders.org",
                   role = c("aut", "cre"))
 Maintainer: Jacob Malcom <jmalcom@defenders.org>
