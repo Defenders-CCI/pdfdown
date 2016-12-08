@@ -27,9 +27,12 @@
 download_pdf <- function(url, file, quiet = FALSE,
                          overwrite = FALSE, pause = TRUE) {
   if(!quiet) message(paste("Processing:", url))
+  subd <- dirname(file)
+  if(!dir.exists(subd)) dir.create(subd, recursive = TRUE)
   url <- URLencode(url)
   if(!file_check(file) & !overwrite) {
     if(pause == TRUE) Sys.sleep(runif(1, 0.5, 3))
+
     if(class(try(httr::http_error(url), silent = TRUE)) != "try-error") {
       res <- try(httr::GET(url, httr::write_disk(file, overwrite = TRUE)))
       if(class(res) == "try-error") { # Try once more
