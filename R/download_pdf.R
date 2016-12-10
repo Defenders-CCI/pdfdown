@@ -46,6 +46,11 @@ download_pdf <- function(url, file, quiet = FALSE,
         }
       }
       pdfCheck <- is_pdf(file)
+      if(res$status_code == 200) {
+        success <- "Success"
+      } else {
+        success <- "Failed"
+      }
       return(data.frame(url = url,
                         dest = file,
                         success = "Success",
